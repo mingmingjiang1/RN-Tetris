@@ -57,7 +57,7 @@ export function  want(next, matrix) { // 方块是否能移到到指定位置
       if (data.lock) { // 当状态为锁定, 不记录
         return;
       }
-      console.log('storage: ', data.points);
+      console.log('storage-----------------------------------: ', JSON.stringify(data.matrix));
       data = JSON.stringify(data);
       data = encodeURIComponent(data);
 

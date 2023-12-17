@@ -107,7 +107,7 @@ export default class Keyboard extends React.Component {
                     <Text>重玩</Text>
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity onPress={this.onPress} onPressIn={this.onPressInSpace}  onPressOut={this.onPressOutSpace} >
+              <TouchableOpacity onPress={this.onPressInSpace}>
                 <View style={styles.spaceButton}>
                   <Text>Space</Text>
                 </View>

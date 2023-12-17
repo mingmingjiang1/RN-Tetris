@@ -1,24 +1,24 @@
-import Video from 'react-native-video';
 import store from '../store';
-import React from 'react';
-const music = require('./music.mp3');
-import { Button, View, TouchableHighlight, Text } from 'react-native';
-import Sound from 'react-native-sound';
+import RNSound from '../util/rnsound';
 
-var whoosh = new Sound(music, Sound.MAIN_BUNDLE, (error) => {
-  if (error) {
-    console.log('failed to load the sound', error);
-    return;
-  }
-  // loaded successfully
-  console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
 
-//  // Play the sound with an onEnd callback
-  whoosh.play((success) => {
-    if (success) {
-      console.log('successfully finished playing');
-    } else {
-      console.log('playback failed due to audio decoding errors');
-    }
-  });
-});
+console.log(848488484848999999999999999 , '--------------------------------=========>')
+
+export const music = {};
+
+
+export const initMusic = () => {
+  RNSound.addSoundOffset('my_music', 8).then(res => {
+    console.log('添加音乐成功', res);
+    music.start = () => RNSound.play('my_music').then(res => {
+      console.log('播放音乐成功', music)
+    }).catch(e => console.log('播放音乐失败', e));
+    music.move = () => RNSound.play('my_music').then(res => {
+      console.log('播放音乐成功', music)
+    }).catch(e => console.log('播放音乐失败', e));
+    console.log('添加音乐成功-----', music);
+  }).catch(e => console.log('添加音乐失败', e));
+};
+
+
+

@@ -26,7 +26,7 @@ class Index extends React.Component {
     };
   }
   componentDidMount() {
-  console.log('rrrrr', lastRecord());
+  console.log('===================>', lastRecord());
     if (lastRecord()) { // 读取记录
       if (lastRecord()?.cur && !lastRecord()?.pause) { // 拿到上一次游戏的状态, 如果在游戏中且没有暂停, 游戏继续
         const speedRun = this.props.speedRun;
@@ -69,8 +69,6 @@ class Index extends React.Component {
       return css;
     })();
 
-    console.log(7775555777, this.props.points);
-
     return (
         <View style={{ backgroundColor: '#009688', flex: 1, justifyContent: 'space-evenly', borderStyle: 'solid', width: '100%', ...size }} >
             <Decorate />
@@ -111,21 +109,24 @@ Index.propTypes = {
   keyboard: propTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  pause: state.pause,
-  matrix: state.matrix,
-  cur: state.cur,
-  reset: state.reset,
-  keyboard: state.keyboard,
-    speedStart: state.speedStart,
-    speedRun: state.speedRun,
-    startLines: state.startLines,
-    clearLines: state.clearLines,
-    points: state.points,
-    max: state.max,
+const mapStateToProps = (state) => {
+  console.log(88888888)
+  return ({
+    pause: state.pause,
+    // matrix: state.matrix,
+    cur: state.cur,
     reset: state.reset,
-    drop: state.drop,
-     next: state.next,
-});
+    keyboard: state.keyboard,
+      speedStart: state.speedStart,
+      speedRun: state.speedRun,
+      startLines: state.startLines,
+      clearLines: state.clearLines,
+      points: state.points,
+      max: state.max,
+      reset: state.reset,
+      drop: state.drop,
+       next: state.next,
+  })
+};
 
 export default connect(mapStateToProps)(Index);

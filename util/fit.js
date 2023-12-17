@@ -32,18 +32,17 @@ export class Storage {
   static isInit = false;
 
   static async init () {
+    console.log('initing Async storage');
     const keys = await AsyncStorage.getAllKeys(); 
     const items = await AsyncStorage.multiGet(keys, (err, stores) => {
       stores?.map((result, i, store) => {
         Storage.cache[result[0]] = result[1];
-        console.log(88888, result, Storage.cache);
+        console.log('init item', result[1]);
       });
     });
-    Storage.isInit = true;
   }
 
   static getItem(key) {
-    console.log(8888998878, Storage.cache);
     return Storage.cache[key];
   }
 

@@ -49,7 +49,7 @@ const down = (store) => {
         }, 100);
         states.nextAround(matrix);
       } else {
-      console.log(2222244, states.start);
+      console.log('===========================*****', states.start);
         states.start();
       }
     },

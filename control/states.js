@@ -3,7 +3,7 @@ import store from '../store';
 import { want, isClear, isOver } from '../unit/';
 import actions from '../actions';
 import { speeds, blankLine, blankMatrix, clearPoints, eachLines } from '../unit/const';
-//import { music } from '../unit/music';
+import { music } from '../unit/music';
 
 
 const getStartMatrix = (startLines) => { // 生成startLines
@@ -43,9 +43,10 @@ const states = {
 
   // 游戏开始
   start: () => {
-//    if (music.start) {
-//      music.start();
-//    }
+    console.log('游戏开始start ==========> ', music)
+   if (music.start) {
+     music.start();
+   }
     const state = store.getState();
     states.dispatchPoints(0);
     store.dispatch(actions.speedRun(state?.speedStart));
@@ -62,7 +63,6 @@ const states = {
     const out = (timeout < 0 ? 0 : timeout);
     let state = store.getState();
     let cur = state.cur;
-    console.log('重复执行', cur);
     const fall = () => {
       state = store.getState();
       cur = state.cur;
@@ -105,7 +105,6 @@ const states = {
       ((store.getState()?.speedRun - 1) * 2); // 速度越快, 得分越高
 
     states.dispatchPoints(addPoints);
-    console.log(999992);
     if (isClear(matrix)) {
 //      if (music.clear) {
 //        music.clear();

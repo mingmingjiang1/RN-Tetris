@@ -17,6 +17,7 @@ const down = (store) => {
           return;
         }
         if (music?.move) {
+          console.log('********************', music)
           music?.move();
         }
         const cur = state.cur;

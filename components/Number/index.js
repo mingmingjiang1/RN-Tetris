@@ -16,11 +16,10 @@ const render = (data) => (
   <View style={styles.number}>
     {
       data.map((e, k) => {
-      console.log(33933, e, imageList[e], data);
       const tmp = `score_${e}.png`;
         return (
-                         <ImageBackground source={ imageList[e] } resizeMode="contain" style={styles.image}>
-                           <View style={styles.span} key={k} />
+                         <ImageBackground key={k} source={ imageList[e] } resizeMode="contain" style={styles.image}>
+                           <View style={styles.span} />
                          </ImageBackground>
                      )
       })
@@ -41,7 +40,7 @@ export default class Number extends React.Component {
       time: new Date(),
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.time) {
       return;
     }
@@ -76,6 +75,7 @@ export default class Number extends React.Component {
     clearTimeout(Number.timeInterval);
   }
   render() {
+    console.log('inner comp Number ====> ', this.props.number)
     if (this.props.time) { // 右下角时钟
       const now = this.state.time;
       const hour = formate(now.getHours());
@@ -86,11 +86,9 @@ export default class Number extends React.Component {
     }
 
     const num = `${this.props.number}`.split('');
-    console.log(5555555, num, this.props.length, this.props.length - num.length)
     for (let i = 0, len = this.props.length - num.length; i < len; i++) {
       num.unshift('n');
     }
-    console.log(888888, num);
     return (render(num));
   }
 }

@@ -3,7 +3,7 @@ import {combineReducers, createStore} from "redux";
 import matrix from './matrix';
 import cur from './cur';
 import reset from './reset';
-import keyboard from './keyboard';
+import keyboard from './cur/keyboard';
 import pause from './pause';
 import startLines from './startLines';
 import points from './points';
@@ -14,6 +14,8 @@ import clearLines from './clearLines';
 import lock from './lock';
 import drop from './drop';
 import max from './max';
+
+console.log('46646464646')
 
 const rootReducer = combineReducers({
 matrix,

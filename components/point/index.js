@@ -12,7 +12,7 @@ export default class Point extends React.Component {
       number: 0,
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.onChange(this.props);
   }
   componentWillReceiveProps(nextProps) {
@@ -24,13 +24,13 @@ export default class Point extends React.Component {
   }
   onChange({ cur, point, max }) {
     clearInterval(Point.timeout);
+    console.log('max =====> ', max, point)
     if (cur) { // 在游戏进行中
       this.setState({
         label: point >= max ? '最高分' : '得分',
         number: point,
       });
     } else { // 游戏未开始
-    console.log(555223455, point, max)
       const toggle = () => { // 最高分与上轮得分交替出现
         this.setState({
           label: '上轮得分',
@@ -57,11 +57,10 @@ export default class Point extends React.Component {
   }
 
   render() {
-  console.log(111111111111111111222, this.state.number)
     return (
       <View>
         <View>
-            <Text>{ 'Nih' }: {this.state.number}</Text>
+            <Text>得分{this.state.number}</Text>
             <Number number={this.state.number} />
         </View>
       </View>

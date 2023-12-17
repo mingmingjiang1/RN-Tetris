@@ -2,19 +2,17 @@ import * as reducerType from '../../unit/reducerType';
 import { maxPoint } from '../../unit/const';
 import { lastRecord } from '../../unit/last-record';
 
-
-let initState = () => { 
-  const tmp = lastRecord();
-  const ans = tmp && !isNaN(parseInt(tmp?.max, 10)) ?
-  parseInt(tmp.max, 10) : 0;
-
-  if (ans < 0) {
-    ans = 0;
-  } else if (ans > maxPoint) {
-    ans = maxPoint;
+let initState = () => {
+  let tmp = lastRecord();
+  tmp = tmp && !isNaN(parseInt(tmp.max, 10)) ? parseInt(tmp.max, 10) : 0;
+  if (tmp < 0) {
+    tmp = 0;
+  } else if (tmp > maxPoint) {
+    tmp = maxPoint;
   }
-  return ans;
+  return tmp;
 }
+
 
 const parse = (state = 0, action) => {
   switch (action.type) {

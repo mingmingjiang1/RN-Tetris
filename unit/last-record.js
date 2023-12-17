@@ -7,12 +7,12 @@ export const lastRecord = () => { // 上一把的状态
     try {
 
       data = Storage.getItem(StorageKey);
-      console.log(444444, data);
         if (!data) {
           return false;
         }
             data = decodeURIComponent(data);
             data = JSON.parse(data);
+            console.log('解析数据 storage =====>', data);
     } catch (error) {
       // Error retrieving data
       console.log('error2222: ', error);

@@ -22,7 +22,7 @@ export default class Logo extends React.Component {
       display: 'none',
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.animate(this.props);
   }
   componentWillReceiveProps(nextProps) {

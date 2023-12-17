@@ -1,10 +1,10 @@
-import * as reducerType from '../../unit/reducerType';
+import * as reducerType from '../../../unit/reducerType';
 
 const initState = false;
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case reducerType.KEY_RIGHT:
+    case reducerType.KEY_ROTATE:
       return action.data;
     default:
       return state;

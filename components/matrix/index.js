@@ -25,7 +25,6 @@ class Matrix extends React.Component {
       isOver: overs,
     });
 
-    console.log(8888882, clears, this.state.clearLines)
     if (clears && !this.state.clearLines) {
       this.clearAnimate(clears);
     }
@@ -53,7 +52,7 @@ class Matrix extends React.Component {
     const shape = cur && cur.shape;
     const xy = cur && cur.xy;
 
-    console.log(99999, xy, cur, shape);
+    console.log('cur, shape, xy: ======> ', xy, cur, shape);
 
     let matrix = props.matrix;
     const clearLines = this.state.clearLines;

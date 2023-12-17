@@ -25,7 +25,7 @@ export default class Next extends React.Component {
       block: empty,
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.build(this.props.data);
   }
   componentWillReceiveProps(nextProps) {
@@ -36,7 +36,7 @@ export default class Next extends React.Component {
   }
   build(type) {
     const shape = blockShape[type];
-    console.log(333399999, type, blockShape)
+
     const block = empty.map(e => ([...e]));
     shape.forEach((m, k1) => {
       m.forEach((n, k2) => {

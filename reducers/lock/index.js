@@ -6,7 +6,7 @@ const initState = () => {
   return tmp && tmp.lock !== undefined ? !!tmp.lock : false;
 }
 
-const lock = (state = initState, action) => {
+const lock = (state = false, action) => {
   switch (action.type) {
     case reducerType.LOCK:
       return action.data;
